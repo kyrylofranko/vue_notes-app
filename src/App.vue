@@ -1,32 +1,40 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Header />
+    <MainContent />
+    <Footer />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapActions } from 'vuex';
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
 
-#nav {
-  padding: 30px;
-}
+export default {
+  components: { Footer, MainContent, Header },
+  methods: mapActions(['fetchNotes', 'fetchComments']),
+  async mounted() {
+    await this.fetchComments();
+    await this.fetchNotes();
+  },
+};
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+<style lang="scss">
+  @import './styles';
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  #app {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+
+  .el-button--primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
 </style>
