@@ -1,4 +1,6 @@
 module.exports = {
-  publicPath: 'vue_notes-app',
   lintOnSave: false,
-};
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/vue_notes-app/'
+    : '/'
+}
