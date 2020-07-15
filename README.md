@@ -1,5 +1,7 @@
 ### Vue, Vuex, Element UI, Firebase, Axios
 
+- [DEMO](https://kiramarks.github.io/vue_notes-app/)
+
 #### Project setup
 ```
 npm install
