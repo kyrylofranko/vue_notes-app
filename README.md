@@ -1,4 +1,4 @@
-### Vue, Vuex, Element UI, Firebase
+### Vue, Vuex, Element UI, Firebase, Axios
 
 #### Project setup
 ```
